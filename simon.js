@@ -27,7 +27,7 @@ $(document).on("touchstart", function (e) {
 
 // keydown event 
 $(document).on("keydown", function (e) {
-    if (!gameStart && e.key === "Enter") {
+    if (!gameStart) {
         nextSeq();
         $("h1#level-title").html('Level <span style="color: darkred;"> # </span>' + level);
         gameStart = true;
@@ -128,7 +128,7 @@ function checkAnswer(currentLvl) {
         if (touchDevice) {
             $("h1#level-title").html("Game Over! Tap Anywhere to Restart");
         } else {
-            $("h1#level-title").html("Game Over! Press ENTER to Restart.");
+            $("h1#level-title").html("Game Over! Press Any key to Restart.");
         }
         level = 0;
         gameStart = false;
