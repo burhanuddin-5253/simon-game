@@ -17,6 +17,14 @@ $(document).ready(() => {
 });
 
 
+$(document).on("touchend", function (e) {
+    if (!gameStart && e.key === "Enter") {
+        nextSeq();
+        $("h1#level-title").html('Level <span style="color: darkred;"> # </span>' + level);
+        gameStart = true;
+    }
+});
+
 // keydown event 
 $(document).on("keydown", function (e) {
     if (!gameStart && e.key === "Enter") {
