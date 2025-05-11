@@ -10,7 +10,7 @@ var gamePattern = [];
 var level = 0;
 var gameStart = false;
 
-document.onload(() => {
+$(document).ready(() => {
     if (touchDevice) {
         $("h1#level-title").html("Tap Anywhere to Start");
     }
