@@ -128,7 +128,7 @@ function checkAnswer(currentLvl) {
         if (touchDevice) {
             $("h1#level-title").html("Game Over! Tap Anywhere to Restart");
         } else {
-            $("h1#level-title").html("Game Over! Press Any key to Restart.");
+            $("h1#level-title").html("Game Over! Press ENTER to Restart.");
         }
         level = 0;
         gameStart = false;
