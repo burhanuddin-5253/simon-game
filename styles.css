@@ -66,6 +66,10 @@ body {
 }
 
 @media (max-width: 550px){
+  .container{
+    grid-template:auto auto / 2fr 2fr;
+  }
+
   .btn{
     margin: 10px;
     height: 120px;
@@ -75,5 +79,9 @@ body {
 
   #level-title{
     font-size: 1.2rem;
+  }
+
+  .one{
+    margin-top: 20px;
   }
 }
