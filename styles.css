@@ -78,10 +78,11 @@ body {
   }
 
   #level-title{
+    margin-top: 15px;
     font-size: 1.2rem;
   }
 
   .one{
-    margin-top: 20px;
+    margin-top: 30px;
   }
 }
