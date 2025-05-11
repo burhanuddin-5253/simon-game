@@ -18,7 +18,7 @@ $(document).ready(() => {
 
 
 $(document).on("touchstart", function (e) {
-    if (!gameStart && e.key === "Enter") {
+    if (!gameStart) {
         nextSeq();
         $("h1#level-title").html('Level <span style="color: darkred;"> # </span>' + level);
         gameStart = true;
@@ -27,7 +27,7 @@ $(document).on("touchstart", function (e) {
 
 // keydown event 
 $(document).on("keydown", function (e) {
-    if (!gameStart) {
+    if (!gameStart && e.key === "Enter") {
         nextSeq();
         $("h1#level-title").html('Level <span style="color: darkred;"> # </span>' + level);
         gameStart = true;
