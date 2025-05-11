@@ -1,3 +1,5 @@
+var touchDevice = ('ontouchstart' in document.documentElement);
+
 var buttonColors = [
     "red", "green", "yellow", "blue",
 ];
@@ -8,6 +10,12 @@ var gamePattern = [];
 var level = 0;
 var gameStart = false;
 
+document.onload(() => {
+    if (touchDevice) {
+        $("h1#level-title").html("Tap Anywhere to Start");
+    }
+});
+
 
 // keydown event 
 $(document).on("keydown", function (e) {
@@ -15,7 +23,7 @@ $(document).on("keydown", function (e) {
         nextSeq();
         $("h1#level-title").html('Level <span style="color: darkred;"> # </span>' + level);
         gameStart = true;
-    } 
+    }
 
     if (gameStart) {
         let char = e.key;
@@ -33,7 +41,7 @@ $(document).on("keydown", function (e) {
             case "b":
                 $("div.btn#blue").trigger("click");
                 break;
-        
+
             default:
                 break;
         }
@@ -45,7 +53,7 @@ $(document).on("keydown", function (e) {
 $("div.btn").on("click", function () {
 
     if (!gameStart) {
-        return ;
+        return;
     }
     let userChosenBtn = $(this).attr("id");
     userClickedPattern.push(userChosenBtn);
@@ -109,7 +117,11 @@ function checkAnswer(currentLvl) {
     } else {
         wrongAnimation();
         playSound("wrong");
-        $("h1#level-title").html("Game Over! Press ENTER to Restart.");
+        if (touchDevice) {
+            $("h1#level-title").html("Game Over! Tap Anywhere to Restart");
+        } else {
+            $("h1#level-title").html("Game Over! Press ENTER to Restart.");
+        }
         level = 0;
         gameStart = false;
         gamePattern = [];
